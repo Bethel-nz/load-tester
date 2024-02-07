@@ -4,7 +4,6 @@ import { loadTestNTimesLinearly } from './lib/loadTestNtimesLinearLy';
 import { loadTestConcurrently } from './lib/loadTestConcurrently';
 import { calculateStats } from './util/calculateStats';
 import { displayFormattedStats } from './util/displayFormattedStats';
-const DECIMAL_RADIX = 10;
 const program = new Command();
 
 program
@@ -23,8 +22,8 @@ program.parse(process.argv);
 
 const options = program.opts();
 const url = options.url;
-const numberOfRequests = parseInt(options.number, DECIMAL_RADIX);
-const concurrentRequests = parseInt(options.concurrent, DECIMAL_RADIX);
+const numberOfRequests = parseInt(options.number);
+const concurrentRequests = parseInt(options.concurrent);
 
 if (!url) {
 	console.error('URL is required');
